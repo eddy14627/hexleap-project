@@ -11,9 +11,9 @@ const Card2: React.FC<CardProps> = ({ title, imageUrl }) => {
 
   return (
     <div
-      className={`m-2 w-1/5 ${
+      className={`m-2 p-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/6 ${
         mode ? "bg-white" : "bg-gray-700"
-      } relative rounded shadow`}
+      }`}
     >
       <div className="rounded overflow-hidden">
         <img src={imageUrl} alt={title} className="w-full" />

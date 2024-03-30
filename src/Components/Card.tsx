@@ -10,7 +10,11 @@ const Card: React.FC<CardProps> = ({ title, imageUrl }) => {
   const { mode } = useMyContext(); // Using useMyContext hook to access context values
 
   return (
-    <div className={`m-2 p-2 w-1/5 ${mode ? "bg-white" : "bg-gray-700"}`}>
+    <div
+      className={`m-2 p-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/6 ${
+        mode ? "bg-white" : "bg-gray-700"
+      }`}
+    >
       <div className="w-rounded">
         <img src={imageUrl} alt={title} className="w-full" />
 

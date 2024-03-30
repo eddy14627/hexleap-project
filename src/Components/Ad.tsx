@@ -15,7 +15,11 @@ const Ad: React.FC<AdProps> = ({ title, imageUrl }) => {
     ChangeMode(); // Toggle mode
   };
   return (
-    <div className={`m-2 p-4 w-1/5 ${mode ? "bg-white" : "bg-gray-700"} `}>
+    <div
+      className={`m-2 p-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/6 ${
+        mode ? "bg-white" : "bg-gray-700"
+      }`}
+    >
       <div className="w-rounded relative">
         <div className="absolute top-0 right-0 bg-black text-white px-2 py-1 rounded-tl flex items-center">
           AD
@@ -34,8 +38,7 @@ const Ad: React.FC<AdProps> = ({ title, imageUrl }) => {
             <p className={`${mode ? "text-black" : "text-slate-400"} text-2xl`}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
-              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.
+              ipsum dolor sit amet
             </p>
           </div>
         </div>

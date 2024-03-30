@@ -14,7 +14,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div
-      className={`px-[150px] py-[100px] ${
+      className={`px-4 md:px-8 lg:px-12 xl:px-16 py-4 md:py-8 lg:py-12 xl:py-16 ${
         mode ? "bg-slate-100" : "bg-gray-800"
       }`}
     >
@@ -28,7 +28,7 @@ const HomePage: React.FC = () => {
             Sports
           </span>
         </h1>
-        <div className="flex">
+        <div className="flex flex-wrap">
           <Card title={`Las Vegas Aviators`} imageUrl="/assets/1.png" />
           <Card title={`Las Vegas Aviators`} imageUrl="/assets/4.png" />
           <Card title={`Las Vegas Aviators`} imageUrl="/assets/3.png" />
@@ -62,8 +62,7 @@ const HomePage: React.FC = () => {
             metatickets—exclusive access to premium events for an unforgettable
             experience. Grab yours today! Lorem, ipsum dolor sit amet
             consectetur adipisicing elit. Blanditiis hic incidunt quis eum?
-            Itaque repellat amet repudiandae eligendi a vel odio nulla nam in
-            obcaecati! Excepturi molestias consequatur mollitia debitis!
+            Itaque repellat amet
           </p>
           <div className="flex justify-center items-center space-x-8 mb-8">
             <div className="text-center">
