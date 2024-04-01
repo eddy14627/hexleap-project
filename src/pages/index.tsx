@@ -2,24 +2,23 @@ import Card from "@/Components/Card";
 import React from "react";
 import Card2 from "@/Components/Card2";
 import Ad from "@/Components/Ad";
-import { useMyContext } from "@/Context/MyContext"; // Import useMyContext hook
+import { useMyContext } from "@/Context/MyContext";
 
 const HomePage: React.FC = () => {
-  const { mode, ChangeMode } = useMyContext(); // Using useMyContext hook to access context values
+  const { mode, ChangeMode } = useMyContext();
 
-  // Handler function to toggle between dark mode and light mode
   const toggleMode = () => {
-    ChangeMode(); // Toggle mode
+    ChangeMode();
   };
 
   return (
     <div
-      className={`px-4 md:px-8 lg:px-12 xl:px-16 py-4 md:py-8 lg:py-12 xl:py-16 ${
+      className={`flex flex-col px-4 md:px-10 lg:px-12 xl:px-16 py-4 md:py-8 lg:py-12 xl:py-16 ${
         mode ? "bg-slate-100" : "bg-gray-800"
       }`}
     >
       <div className="w-full">
-        <h1 className="font-bold text-[35px] pb-2 mb-2">
+        <h1 className="font-bold text-2xl pb-2 mb-2">
           <span
             className={`border-b-2 border-${
               mode ? "black " : "white text-white"
@@ -28,7 +27,7 @@ const HomePage: React.FC = () => {
             Sports
           </span>
         </h1>
-        <div className="flex flex-wrap">
+        <div className="flex gap-3 flex-wrap justify-center">
           <Card title={`Las Vegas Aviators`} imageUrl="/assets/1.png" />
           <Card title={`Las Vegas Aviators`} imageUrl="/assets/4.png" />
           <Card title={`Las Vegas Aviators`} imageUrl="/assets/3.png" />
@@ -48,7 +47,7 @@ const HomePage: React.FC = () => {
         </div>
       </div>
 
-      <div className="justify-center items-center pt-10 text-center w-full">
+      <div className="justify-center items-center p-10 text-center w-full">
         <h1
           className={`font-bold text-[50px] pb-6 ${
             mode ? "text-black" : "text-white"
@@ -56,7 +55,7 @@ const HomePage: React.FC = () => {
         >
           Collection Spotlight
         </h1>
-        <div className="inline-block">
+        <div className="">
           <p className={`${mode ? "" : "text-slate-100"} pb-10 inline-block`}>
             Discover extraordinary moments with our Spotlight Collection
             metatickets—exclusive access to premium events for an unforgettable
@@ -64,16 +63,18 @@ const HomePage: React.FC = () => {
             consectetur adipisicing elit. Blanditiis hic incidunt quis eum?
             Itaque repellat amet
           </p>
-          <div className="flex justify-center items-center space-x-8 mb-8">
-            <div className="text-center">
-              <span className="text-blue-700 border-blue-700 border-2 px-4 py-2 rounded cursor-pointer">
+          <div className="flex flex-col items-center w-full justify-between gap-2 sm:flex-row">
+            <div className="flex h-[50px] items-center justify-center">
+              <span className="text-blue-500 border-blue-500 border-2 px-4 py-2 rounded cursor-pointer">
                 {"<"}
               </span>
             </div>
-            <Card2 title={`Example Card`} imageUrl="/assets/11.png" />
-            <Card2 title={`Example Card`} imageUrl="/assets/22.png" />
-            <Card2 title={`Example Card`} imageUrl="/assets/33.png" />
-            <div className="text-center">
+            <div className="flex gap-10 flex-wrap justify-center">
+              <Card2 title={`Example Card`} imageUrl="/assets/11.png" />
+              <Card2 title={`Example Card`} imageUrl="/assets/22.png" />
+              <Card2 title={`Example Card`} imageUrl="/assets/33.png" />
+            </div>
+            <div className="flex h-[50px] items-center justify-center">
               <span className="text-blue-500 border-blue-500 border-2 px-4 py-2 rounded cursor-pointer">
                 {">"}
               </span>

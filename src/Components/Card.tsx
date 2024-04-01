@@ -1,5 +1,5 @@
-// card.tsx
 import { useMyContext } from "@/Context/MyContext";
+import Image from "next/image";
 
 interface CardProps {
   title: string;
@@ -7,16 +7,20 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ title, imageUrl }) => {
-  const { mode } = useMyContext(); // Using useMyContext hook to access context values
+  const { mode } = useMyContext();
 
   return (
     <div
-      className={`m-2 p-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/6 ${
-        mode ? "bg-white" : "bg-gray-700"
-      }`}
+      className={`m-2 p-2 flex flex-wrap ${mode ? "bg-white" : "bg-gray-700"}`}
     >
-      <div className="w-rounded">
-        <img src={imageUrl} alt={title} className="w-full" />
+      <div className="w-rounded flex-grow">
+        <Image
+          src={imageUrl}
+          alt={title}
+          width={200}
+          height={300}
+          className="w-full rounded"
+        />
 
         <div>
           <div
@@ -37,7 +41,7 @@ const Card: React.FC<CardProps> = ({ title, imageUrl }) => {
               >
                 Total Events
               </p>
-              <p className="font-semibold text-2xl">Sports</p>
+              <p className="font-bold text-1xl">Sports</p>
             </div>
             <div className="flex flex-col">
               <p
@@ -45,7 +49,7 @@ const Card: React.FC<CardProps> = ({ title, imageUrl }) => {
               >
                 Total Events
               </p>
-              <p className="font-semibold text-2xl">Sports</p>
+              <p className="font-bold text-1xl">Sports</p>
             </div>
           </div>
         </div>

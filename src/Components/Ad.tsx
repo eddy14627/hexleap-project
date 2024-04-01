@@ -1,50 +1,51 @@
-// components/Ad.tsx
-
 import { useMyContext } from "@/Context/MyContext";
+import Image from "next/image";
 
-interface AdProps {
+interface CardProps {
   title: string;
   imageUrl: string;
 }
 
-const Ad: React.FC<AdProps> = ({ title, imageUrl }) => {
-  const { mode, ChangeMode } = useMyContext(); // Using useMyContext hook to access context values
+const Card: React.FC<CardProps> = ({ title, imageUrl }) => {
+  const { mode } = useMyContext();
 
-  // Handler function to toggle between dark mode and light mode
-  const toggleMode = () => {
-    ChangeMode(); // Toggle mode
-  };
   return (
     <div
-      className={`m-2 p-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/6 ${
+      className={`${
         mode ? "bg-white" : "bg-gray-700"
-      }`}
+      } shadow-[0px_8px_16px_0px_#0000000D] max-h-[511px] w-[238px] p-3 font-secondary text-black `}
     >
-      <div className="w-rounded relative">
-        <div className="absolute top-0 right-0 bg-black text-white px-2 py-1 rounded-tl flex items-center">
-          AD
+      <div className="h-full flex flex-col gap-3 border-[0.2px]">
+        <div className="relative h-[218px] w-full overflow-hidden">
+          <div className="absolute bg-black text-white top-0 right-0 z-[999] font-bold text-xs px-[15px] py-[3px]">
+            Ad
+          </div>
+          <Image
+            alt="star"
+            className="w-full object-cover"
+            width={300}
+            height={200}
+            src={imageUrl}
+          />
         </div>
-        <img src={imageUrl} alt={title} className="w-full" />
-
-        <div>
-          <div
-            className={`font-bold text-2xl py-4 ${
-              mode ? "text-black" : "text-slate-300"
+        <div className="flex flex-col gap-3 px-3 flex-1">
+          <h2
+            className={`font-bold text-2xl ${
+              mode ? "text-black" : "text-slate-100"
             }`}
           >
             Advertisement title
-          </div>
-          <div className=" py-1 rounded flex justify-between">
-            <p className={`${mode ? "text-black" : "text-slate-400"} text-2xl`}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
-              ipsum dolor sit amet
-            </p>
-          </div>
+          </h2>
+          <p className={`text-sm ${mode ? "text-black" : "text-slate-100"}`}>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Accusantium iure sapiente natus, ea sunt ratione exercitationem aut
+            tenetur, quia repudiandae distinctio harum cumque commodi quasi
+            minus, neque iste? Error, ratione?
+          </p>
         </div>
       </div>
     </div>
   );
 };
 
-export default Ad;
+export default Card;

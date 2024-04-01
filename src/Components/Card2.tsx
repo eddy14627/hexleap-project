@@ -1,5 +1,5 @@
 import { useMyContext } from "@/Context/MyContext";
-import React from "react";
+import Image from "next/image";
 
 interface CardProps {
   title: string;
@@ -11,60 +11,64 @@ const Card2: React.FC<CardProps> = ({ title, imageUrl }) => {
 
   return (
     <div
-      className={`m-2 p-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/6 ${
+      className={`${
         mode ? "bg-white" : "bg-gray-700"
-      }`}
+      } shadow-[0px_8px_16px_0px_#0000001A] h-[625px] max-w-[257px] p-3 font-secondary flex flex-col justify-between`}
     >
-      <div className="rounded overflow-hidden">
-        <img src={imageUrl} alt={title} className="w-full" />
-
-        {/* Ticket divider */}
-        <div className="relative mt-1 mb-4 flex justify-between items-center">
+      <div className="b relative h-[385px] w-full overflow-hidden shadow-[0px_8px_16px_0px_#00000033] max-sm:h-[350px]">
+        <Image
+          alt={title}
+          className=" object-cover"
+          width={300}
+          height={200}
+          src={imageUrl}
+        />
+      </div>
+      <div className="relative flex justify-around px-4 -mt-4">
+        <div className="shadow-[inset_7px_0px_8px_0px_#00000015] w-[20px] h-[20px] bg-gradient-to-b from-[#F9F8FF] to-[#F3F9FF] dark:from-[#18282A] dark:to-[#221A2C] absolute translate-x-[12px] -right-[10px] top-[-9px] rounded-full"></div>
+        <div className="shadow-[inset_-7px_0px_8px_0px_#00000015] w-[20px] h-[20px] bg-gradient-to-b from-[#F9F8FF] to-[#F3F9FF] dark:from-[#18282A] dark:to-[#221A2C] absolute -translate-x-[12px] -left-[10px] top-[-9px] rounded-full"></div>
+        <div className="border-b w-[3px] border-[#818A97] "></div>
+        <div className="border-b w-[8px] border-[#818A97] "></div>
+      </div>
+      <div className="flex flex-col gap-3">
+        <h2
+          className={`font-primary text-center font-medium text-1xl ${
+            mode ? "text-black" : "text-slate-100"
+          }`}
+        >
+          {title}
+        </h2>
+        <div className="font-primary flex flex-col items-center gap-2">
           <div
-            className={`w-6 h-6 ${
-              mode ? "bg-slate-100" : "bg-gray-800"
-            } rounded-full transform -translate-x-2`}
-          ></div>
-          <hr
-            className={`mx-4 flex-grow border-t-2 ${
-              mode ? "border-gray-300" : "border-white"
-            } border-dotted`}
-          />
-          <div
-            className={`w-6 h-6 ${
-              mode ? "bg-slate-100" : "bg-gray-800"
-            } rounded-full transform translate-x-2`}
-          ></div>
-        </div>
-
-        <div className="flex flex-col justify-center items-center pb-5">
-          {/* Added py-2 class for padding */}
-          <p
-            className={`font-semibold text-2xl ${
-              mode ? "text-black" : "text-white"
-            } py-2`}
-          >
-            Las Vegas Aviators
-          </p>
-          {/* Added py-2 class for padding */}
-          <p className={`py-2 text-2xl ${mode ? "text-black" : "text-white"}`}>
-            OCT 15| SUN | 4:30PM
-          </p>
-          {/* Added py-2 class for padding */}
-          <p
-            className={`pt-2 pb-4 text-2xl ${
-              mode ? "text-black" : "text-white"
+            className={`flex text-sm items-center gap-2 ${
+              mode ? "text-black" : "text-slate-100"
             }`}
+          >
+            <span>OCT 15</span>
+            <div
+              className={`h-[14px] w-[1px] ${
+                mode ? "text-black" : "text-slate-100"
+              }`}
+            ></div>
+            <span>SUN</span>
+            <div
+              className={`h-[14px] w-[1px] ${
+                mode ? "text-black" : "text-slate-100"
+              }`}
+            ></div>
+            <span>4:30 PM</span>
+          </div>
+          <p
+            className={`font-secondary text-sm ${
+              mode ? "text-black" : "text-slate-100"
+            } text-center`}
           >
             Las Vegas Ballpark, Las Vegas, Nevada
           </p>
-          {/* Added py-2 class for padding */}
-          <h1 className="text-2xl mx-auto py-4">
-            <span className={`bg-black text-white p-3 rounded cursor-pointer`}>
-              Take Flight Collection
-            </span>
-          </h1>
         </div>
+        <button className="bg-[#1D1D1F] text-white text-center w-full text-sm p-3">
+          Take Flight Collection
+        </button>
       </div>
     </div>
   );
