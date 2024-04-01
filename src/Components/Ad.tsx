@@ -13,7 +13,7 @@ const Card: React.FC<CardProps> = ({ title, imageUrl }) => {
     <div
       className={`${
         mode ? "bg-white" : "bg-gray-700"
-      } shadow-[0px_8px_16px_0px_#0000000D] max-h-[511px] w-[238px] p-3 font-secondary text-black `}
+      } shadow-[0px_8px_16px_0px_#0000000D] max-h-[520px] w-[238px] m-2 p-3 font-secondary text-black `}
     >
       <div className="h-full flex flex-col gap-3 border-[0.2px]">
         <div className="relative h-[218px] w-full overflow-hidden">
